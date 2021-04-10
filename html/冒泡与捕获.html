@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+</head>
+<body onclick="bodyClick()">
+
+<div onclick="divClick()">
+  <button onclick="btn()">
+    <p onclick="p()">点击冒泡</p>
+  </button>
+</div>
+<script>
+
+  function p(){
+    console.log('p标签被点击')
+  }
+  function btn(){
+    console.log("button被点击")
+  }
+  function divClick(event){
+    console.log('div被点击');
+  }
+  function bodyClick(){
+    console.log('body被点击')
+  }
+
+  // function getChildren(parent){
+  //   //如果当前父节点不是文本节点，就输出标签名，否则输出文本内容
+  //   console.log(parent.nodeType!=3?parent.nodeName:parent.nodeValue);
+  //   //获得父节点的所有直接子节点
+  //   var children = parent.childNodes;
+  //   //遍历children中每个节点
+  //   for(var i =0,len =children.length;i<len;i++){
+  //     //Step2: 对当前子节点调用getChildren
+  //     getChildren(children[i]);//这里使用递归的调用方法；
+  //     //console.log(children[i].nodeType !=3?children[i].nodeName:children[i].nodeValue);
+  //   }
+  // }
+  // getChildren(document.body);
+
+  // function getChildren(parent){
+  //   //获取NodeIterator对象
+  //   var t = document.createNodeIterator(parent,NodeFilter.SHOW_ALL,null,false);
+  //   //循环遍历对象的下一个节点；
+  //   var currNode=null;
+  //   while((currNode = t.nextNode()) != null){
+  //     //节点不为空，就一直循环遍历下去；直到为null，才中断循环；
+  //     console.log(currNode.nodeType!=3 ? currNode.nodeName:currNode.nodeValue)
+  //   }
+  // }
+  // getChildren(document.body);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 1.检查用户账号
+        //验证规则：由字母、数字、下划线组成，以字母开头，4-16位
+    function checkUser(str) {
+        let re = /^[a-zA-Z]\w{3,15}$/g
+        if(re.test(str)){
+			console.log("User success")
+        } else {
+			console.log("User defeat")
+        }
+	}
+
+	checkUser("tk")
+
+	// 2.匹配手机号
+        // 验证规则：11位，以1开头, 第二位3 5 6 7 8 9
+    function checkPhone(str) {
+        let re = /^1[3|5|6|7|8|9]\d{9}$/g
+		if(re.test(str)){
+			console.log("手机号正确")
+		} else {
+			console.log("手机号错误")
+		}
+	}
+	checkPhone('19829665210')
+
+	// 3.匹配电话号码
+	    // 验证规则：区号 + 号码
+    function checkMobile(str) {
+        let re = /^0\d{2,3}-?\d{7,8}$/g
+		if(re.test(str)){
+			console.log("电话正确")
+		} else {
+			console.log("电话错误")
+		}
+	}
+	checkMobile('010-3845234')
+
+	// 4.匹配身份证号
+	    // 验证规则：18为或15位，15为全是数字；18位的前17位是数字，最后以为是x或X
+    function checkCard(str) {
+        let re = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|x|X))/g
+		if(re.test(str)){
+			console.log("身份证号正确")
+		} else {
+			console.log("身份证号错误")
+		}
+	}
+	checkCard('510402199610161414')
+
+	// 5.匹配邮箱
+	    // 验证规则：第一部分@第二部分.com|cn|net
+    function checkMailbox(str) {
+        let re = /^[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+\.(com|cn|net)/g
+		if(re.test(str)){
+			console.log("邮箱正确")
+		} else {
+			console.log("邮箱错误")
+		}
+	}
+	checkMailbox('101-42_49.101@q_q.com')
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>baidu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 640px;
+      height: 400px;
+      margin: 235px auto;
+    }
+    img {
+      display: block;
+      margin: 10px auto;
+      width: 270px;
+      height: 100px;
+    }
+    .show{
+      margin: 10px auto;
+      width: 380px;
+    }
+    #text{
+      appearance: none;
+      width: 270px;
+      height: 20px;
+      outline: 0;
+    }
+    #go{
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      line-height: 25px;
+      width: 80px;
+      color: white;
+      font-size: 14px;
+      background-color: dodgerblue;
+    }
+    .search{
+      width: 272px;
+      border: 1px solid #cccccc;
+      display: none;
+    }
+    ul{
+      list-style: none;
+    }
+    li{
+      line-height: 20px;
+      font-size: 14px;
+      cursor:pointer;
+      padding: 0 5px;
+    }
+    li:hover{
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="center">
+      <img src="../static/baidu.png" alt="">
+    </div>
+
+    <div class="show">
+      <input type="text" id="text">
+      <a href="" id="go">腾讯一下</a>
+      <div class="search">
+        <ul></ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    let text = document.getElementById("text")
+    let go = document.getElementById("go")
+    let search = document.getElementsByClassName("search")[0]
+    let oul = document.querySelector(".search ul")
+
+    text.onkeyup = function () {
+      let val = this.value
+      search.style.display = val ? "block" : "none";
+      let sc = document.createElement("script");
+      sc.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+ val+"&cb=lyl";
+      document.body.appendChild(sc)
+    }
+    function lyl(data) {
+      oul.innerHTML = ""
+      data.s.forEach(function (el) {
+        let lis= document.createElement("li");
+        lis.innerHTML = "<a href='https://www.baidu.com/s?wd="+el+"'>" + el + "</a>"
+        oul.appendChild(lis)
+      })
+    }
+
+    function f() {
+
+    }
+  </script>
+</body>
+</html>

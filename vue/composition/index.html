@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test of composition</title>
+    <script type="text/javascript" src="reactive.js"></script>
+    <script type="text/javascript" src="myReadOnly.js"></script>
+    <script type="text/javascript" src="myRef.js"></script>
+    <script type="text/javascript" src="is判断.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+	/* 测试自定义shallowReactive */
+	// let obj = {
+	// 	a:'a',
+	// 	gf:{
+	// 		b:'b',
+	// 		f:{
+	// 			c:'c'
+	// 		}
+	// 	}
+	// }
+    // const proxy = shallowReactive(obj)
+	// console.log("====")
+	// proxy.a = '1';
+	// console.log("====")
+	// proxy.gf.b = '2';
+	// console.log("====")
+	// proxy.gf.f.c = '3';
+
+	/* 测试自定义readonly */
+    // let obj = {
+    // 	name: "222",
+    //     cars:["benchi", "aodi"]
+    // }
+	// const proxy = readonly(obj)
+    //
+	// console.log(proxy.name);
+    // proxy.name="3333"
+    // delete proxy.name;
+    // proxy.cars[0] = "titi"
+
+	/* 测试自定义ref */
+    // let obj = {
+    // 	a: 'a',
+    //     gf:{
+    // 		b:'b'
+    //     }
+    // }
+    // const proxy = ref(obj);
+	// console.log(proxy.value);
+	// proxy.value.a = "==="
+
+	/* 测试自定义判断 */
+	let obj = {
+		a: 'a',
+	    gf:{
+			b:'b'
+	    }
+	}
+	let proxy1 = ref(obj);
+	let proxy2 = reactive(obj);
+	let proxy3 = readonly(obj);
+	console.log(isRef(proxy1));
+	console.log(isReactive(proxy2));
+	console.log(isReadOnly(proxy3));
+	console.log(isProxy(proxy2))
+</script>
+
+</body>
+</html>

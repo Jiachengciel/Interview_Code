@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去掉空白</title>
+</head>
+<body>
+<script>
+    String.prototype.myTrim = function () {
+        let re = /(^[\s\n\t]*)|([\s\n\t]*$)/g
+        return this.replace(re, "")
+	}
+	let str = "   liu jiacheng  "
+	console.log(str)
+	console.log(str.myTrim())
+    
+    let re2 = /[\s\n\t\.\,:]+/g
+    var str2 = '  liu jia, cheng.com:lei'
+    console.log(str2.trim().split(re2))
+
+    var name = "My city is WH";
+    var resultStr = name.split('').reverse().join('');
+    console.log(resultStr)
+
+
+</script>
+
+</body>
+</html>

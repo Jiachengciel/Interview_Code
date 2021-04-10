@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../React/.idea/React.iml" filepath="$PROJECT_DIR$/../React/.idea/React.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vue核心/code/.idea/code.iml" filepath="$PROJECT_DIR$/../vue核心/code/.idea/code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../文文/毕业/poi_rec_sys-master/.idea/poi_rec_sys-master.iml" filepath="$PROJECT_DIR$/../../文文/毕业/poi_rec_sys-master/.idea/poi_rec_sys-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vue源码解析/.idea/vue源码解析.iml" filepath="$PROJECT_DIR$/../vue源码解析/.idea/vue源码解析.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/面试代码.iml" filepath="$PROJECT_DIR$/.idea/面试代码.iml" />
+    </modules>
+  </component>
+</project>

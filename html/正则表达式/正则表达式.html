@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+
+<body>
+<script>
+    var str1 = 'http://www.baidu.com';
+	var str2 = 'https://www.qq.com';
+    var str3 = 'http://www.google.com';
+    var str4 = 'https://www.xiaomi.cn';
+    var re = /(http|https):\/{2}w{3}\.(xiaomi|qq)\.(com|cn)/g;
+
+    // test语法
+	console.log(re.test(str2))
+    // exec
+	console.log(re.exec(str4))
+    // match
+	console.log(str4.match(re))
+	// search
+	console.log(str3.search(re))
+    // replcae
+    var time = '2021.02.28'
+	console.log(time.replace(/\./g, '-'))
+
+</script>
+</body>
+</html>

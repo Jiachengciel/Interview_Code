@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex实现元素水平垂直居中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+
+            /*display: -webkit-box;*/
+            /*-webkit-box-pack: center;*/
+            /*-webkit-box-align: center;*/
+
+            /*position: relative;*/
+
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+        }
+        #wrap .box {
+            display: inline-block;
+            /*margin: auto;*/
+            /*margin: auto;*/
+
+            /*position: absolute;*/
+            /*top: 50%;*/
+            /*left: 50%;*/
+            /*transform: translate(-50%, -50%);*/
+
+            /*position: absolute;*/
+            /*top: calc(50% - 100px);*/
+            /*left: calc(50% - 100px);*/
+
+            /*position: absolute;*/
+            /*top: 50%;*/
+            /*left: 50%;*/
+            /*margin-top: -100px;*/
+            /*margin-left: -100px;*/
+
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*left: 0;*/
+            /*right: 0;*/
+            /*bottom: 0;*/
+            /*margin: auto;*/
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap" style="width: 500px;height: 500px;background: gray">
+    <div class="box" style="width: 200px;height: 200px;background: pink;"></div>
+</div>
+
+</body>
+</html>

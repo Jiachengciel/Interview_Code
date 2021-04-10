@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>1px物理像素(方案一)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-bottom: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+<div id="node" style="width: 50px;height: 50px">12312414</div>
+<ul id="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+
+<script>
+    // window.onload = function () {
+    // 	// 像素比
+    //     var dpr = window.devicePixelRatio;
+    //     // 缩放比例
+    //     var scale = 1/dpr;
+    //
+    //     var width = document.documentElement.clientWidth;
+    //
+    //     // 获取meta标签
+    //     var metaNode = document.querySelector('meta[name="viewport"]')
+    //     metaNode.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',user-scalable=no')
+    //
+    //     // 页面元素宽度、高度,比例反向乘过来
+    //     var htmlNode = document.querySelector('html');
+    //     htmlNode.style.fontSize = width * dpr + 'px';
+	// }
+
+	// let ul = document.querySelector('#ul')
+	// ul.addEventListener('click', event => {
+	// 	console.log(event.target)
+	// })
+    node = document.getElementById('node')
+	node.addEventListener(
+		'click',
+		event => {
+			console.log('冒泡')
+		},
+		false
+	)
+	node.addEventListener(
+		'click',
+		event => {
+			console.log('捕获 ')
+		},
+		true
+	)
+</script>
+</html>

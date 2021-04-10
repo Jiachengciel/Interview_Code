@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        p::first-letter {
+            color: yellowgreen;
+        }
+        p::before {
+            content: "我说：";
+        }
+        p::after {
+            content: "结束";
+        }
+
+        .outer {
+            width: 800px;
+            height: 200px;
+            border: 10px solid red;
+            overflow: hidden;
+        }
+
+        .inner {
+            width: auto;
+            height: 400px;
+            background-color: #bfa;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        strong {
+            padding: 100px;
+            border: 50px solid aqua;
+            margin: 40px;
+        }
+    </style>
+</head>
+
+<body>
+<ul id='bigtitle'>
+    <li>
+        <div class="data">
+            <div>总负荷</div>
+            <div class="data-value">0</div>
+            <div>kW</div>
+        </div>
+    </li>
+</ul>
+<p>p元素</p>
+
+<div class="outer">
+    <div class="inner"></div>
+</div>
+
+<div>
+    <strong>666</strong>
+</div>
+
+<script>
+	$('#bigtitle li').eq(0).find('.data-value').html(20);
+	var t = document.getElementsByClassName("inner")[0].getBoundingClientRect().height
+	console.log(t)
+
+	console.log('--------------')
+    var x = 10;
+	function fn() {
+		console.log(x)
+	}
+	function show(f) {
+        var x = 20
+        f()
+	}
+	show(fn)
+	console.log('--------------')
+    var obj = {
+		fn: function () {
+			console.log(this)
+			console.log(this.fn)
+		}
+    }
+    obj.fn()
+</script>
+</body>
+</html>

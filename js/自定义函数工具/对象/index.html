@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test of function</title>
+    <script type="text/javascript" src="myNew.js"></script>
+    <script type="text/javascript" src="合并多个对象.js"></script>
+    <script type="text/javascript" src="浅拷贝.js"></script>
+    <script type="text/javascript" src="深拷贝.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    // 对象相关
+	// function Person(name, age) {
+	// 	this.name = name
+	// 	this.age = age
+	// 	// return {}
+	// 	// return []
+	// 	// return function (){}
+	// 	// return 1
+	// 	return undefined
+	// }
+
+	// const p = new Person('tom', 12)
+	// console.log(p)
+    // let p2 = create(Person, 'tom', 12);
+	// console.log(p2)
+    //
+	// const object = {
+	// 	a: [{ x: 2 }, { y: 4 }],
+	// 	b: 1
+	// }
+	// const other = {
+	// 	a: { z: 3},
+	// 	b: [2, 3],
+	// 	c: 'foo'
+	// }
+	// console.log(mergeObject(object, other))
+
+    // 深拷贝
+	const obj1 = {
+		a: 1,
+		b: [ 'e', 'f', 'g'],
+		c: { h: { i: 2 } },
+		d: function (){},
+		e: /a/g,
+        f: Symbol("male")
+	}
+	obj1.b.push(obj1.c)
+	obj1.c.j = obj1.b
+	let obj2 = deepClone4(obj1);
+
+	obj2.e = /[a-z]/g
+    obj2.f = Symbol("female")
+    obj2.b[0] = 'p'
+    obj2.d = function(res){
+		console.log(res)
+    }
+
+	console.log(obj2, obj2.c === obj1.c, obj2.d===obj1.d);
+	console.log(obj1)
+
+</script>
+</body>
+</html>

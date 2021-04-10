@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>百度搜索框模拟</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 640px;
+      height: 300px;
+      margin: 235px auto;
+      background-color: darkblue;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    .show{
+      margin: 10px auto;
+      width: 340px;
+    }
+    #text{
+      /*去掉默认样式*/
+      appearance:none;
+      width:250px;
+      height: 20px;
+      outline:0;
+    }
+    #go{
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      line-height: 25px;
+      border: 0;
+      width:70px;
+      height: 25px;
+      font-size: 14px;
+      color: white;
+      background-color: rgb(33,134,250);
+    }
+    .search{
+      width:252px;
+      border:1px solid #ccc;
+      display: none;
+    }
+    ul{
+      list-style: none;
+    }
+    li{
+      line-height: 20px;
+      font-size: 14px;
+      cursor:pointer;
+      box-sizing: border-box;
+      padding:0 5px;
+    }
+    li:hover{
+      background-color: rgb(230,230,230);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="imgs">
+      <img src="//www.baidu.com/img/PCfb_5bf082d29588c07f842ccde3f97243ea.png" alt="" width="270" height="129">
+    </div>
+
+    <div class="show">
+      <input type="text" id="text" onkeyup="debounce(getText, 10000)">
+      <a href="" id="go">百度一下</a>
+      <div class="search">
+        <ul>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    var text = document.getElementById('text');
+    var search = document.getElementsByClassName('search')[0];
+    var oul = document.querySelector(".search ul");
+    var go =document.getElementById("go");
+    // 每次键盘抬起
+    // text.onkeyup = function(){
+    //   // 获取输入框里面的内容
+    //   debounce(getText(), 2000)
+    // }
+    function getText() {
+      var val = this.value;
+      // 如果输入框中不为空，就让联想列表出现，否则消失
+      search.style.display=this.value!=""?"block":"none";
+      // 每次松开键盘，都要通过script标签向百度接口获取数据
+      // 所以每次松开键盘都要生成一个script标签，通过src属性来跨域请求
+      var sc = document.createElement("script");
+      sc.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+ val+"&cb=lyl";
+      document.body.appendChild(sc);
+    }
+    // data参数就是链接返回的json数据，data是一个对象,data.s就是我们找的联想词
+    function lyl(data){
+      // console.log(data);
+      oul.innerHTML="";//清空
+      // 数组遍历forEach,里面有回调函数
+      data.s.forEach(function(el){
+        // console.log(el);
+        // 生成li
+        var lis = document.createElement("li");
+        // li链接到的地址<a href='https://www.baidu.com/s?wd=el
+        lis.innerHTML = "<a href='https://www.baidu.com/s?wd="+el+"'>"+el+"</a>";
+        oul.appendChild(lis);
+      })
+    }
+    
+    function debounce(func, delay=100) {
+      let timer = null
+      return function(...args){
+        if(timer) clearTimeout(timer)
+        timer = setTimeout(() => {
+          func.apply(this, args)
+        },delay)
+      }
+    }
+  </script>
+</body>
+</html>

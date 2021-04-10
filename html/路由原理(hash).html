@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>路由原理（hash实现）</title>
+</head>
+<body>
+  <ul>
+    <li><a href="#/home">home</a></li>
+    <li><a href="#/about">about</a></li>
+  </ul>
+
+  <div id="routeView"></div>
+
+  <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', onLoad);
+    window.addEventListener('hashchange', onHashChange);
+
+    var routerView = null;
+    function onLoad() {
+      routerView = document.querySelector('#routeView')
+      onHashChange()
+    }
+    function onHashChange() {
+      switch (location.hash) {
+        case '#/home':
+          routerView.innerHTML = 'HOME';
+          return;
+        case '#/about':
+          routerView.innerHTML = 'About';
+          return;
+        default:
+          return;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test of Promise</title>
+  <script type="text/javascript" src="./myPromise.js"></script>
+<!--  <script type="text/javascript" src="./originPromise.js"></script>-->
+</head>
+<body>
+  <script type="text/javascript">
+    let p = new Promise((resolve, reject) => {
+      // resolve("ok")
+      reject("error")
+      // throw "error"
+      // setTimeout(() => {
+      //   resolve("ok")
+      // })
+    })
+    // let p1 = myPromise.resolve("ok");
+    console.log(p)
+    let p1 = p.then(()=>{
+      console.log
+    }).catch((reason)=>{
+      console.log(reason)
+    })
+    console.log("p1", p1)
+    let p2 = p1.catch((reason)=>{
+      console.log(reason)
+    }).catch((reason)=>{
+      console.log(reason)
+    })
+    console.log(p2)
+    // const res = p.then(value => {
+    //   console.log(value);
+    //   // return "hello promise"
+    //   // return new myPromise((resolve, reject) => {
+    //   //   // resolve("new ok")
+    //   //   reject("oh no")
+    //   // })
+    // }, reason => {
+    //   console.warn(reason)
+    // })
+    // console.log(res)
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <script type="text/javascript" src="事件监听委托.js"></script>
+    <script type="text/javascript" src="事件总线.js"></script>
+    <script type="text/javascript" src="消息订阅与发布.js"></script>
+
+</head>
+<body>
+<ul>
+    <li>AAA1</li>
+    <li>AAA2</li>
+    <li>AAA3</li>
+    <li>AAA4</li>
+    <div>bbb</div>
+</ul>
+
+<script type="text/javascript">
+    addEventListener("ul", "click", function (event) {
+		console.log(event.target.innerHTML)
+	}, "li")
+
+	console.log("============")
+    let ebus = new myEventBus();
+    ebus.on("login", data => {
+		console.log(data + "用户登陆了")
+    })
+	ebus.on("login", data => {
+		console.log(data + "用户进来了")
+	})
+    ebus.emit("login", "cc")
+	console.log(ebus)
+    ebus.off("login");
+	console.log(ebus)
+
+	let eb=new myEventBus();
+	eb.once('event1',params=>console.log(11,params));
+	eb.on('event1',params=>console.log(22,params));
+	eb.emit('event1',33)
+
+	console.log("============")
+	// 订阅消息
+    pubsub = new PubSub();
+	pubsub.subscribe('add', (data) => {
+		console.log('add()...', data)
+	})
+	pubsub.subscribe('add', (data) => {
+		console.log('add2()...', data)
+	})
+	const token = pubsub.subscribe('add', (data) => {
+		console.log('add3()...', data)
+	})
+	pubsub.subscribe('update', (data) => {
+		console.log('update()...', data)
+	})
+
+	pubsub.unsubscribe(token)
+	// PubSub.unsubscribe('add')
+	// PubSub.unsubscribe()
+
+	pubsub.publish('add', 12)
+	pubsub.publish('update', 13)
+	pubsub.publishAsync('update', 12)
+	console.log('----')
+
+</script>
+</body>
+</html>

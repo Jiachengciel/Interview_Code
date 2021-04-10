@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <script type="text/javascript" src="myAxios.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+      myAxios({
+          method:'POST',
+          url: 'https://api.apiopen.top/getJok',
+          params:{
+          	a:100, b:200
+          },
+          data:{
+          	c:300, d:400
+          }
+      }).then(response =>{
+		  console.log(response)
+      }).catch(error => {
+		  console.warn(error)
+      })
+    </script>
+</body>
+</html>
