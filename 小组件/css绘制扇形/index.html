@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <span class="sector s1"></span>
+      <span class="sector s2"></span>
+      <span class="sector3">
+        <span id="before"></span>
+        <span id="after"></span>
+        <input type="range" id="secrange" min="0" max="360" />
+        <p class="deg">demo</p>
+      </span>
+    </div>
+  </body>
+</html>
+
+<script>
+  function drawsector() {
+    let deg = document.getElementsByClassName("deg")[0];
+    let secr = document.getElementById("secrange");
+    let secBefore = document.getElementById("before");
+    let secAfter = document.getElementById("after");
+
+    deg.innerHTML = secr.value + "°";
+
+    if (secr.value <= 180) {
+      secAfter.style["background"] = "#333";
+      secAfter.style["transform"] = "rotate(" + (180 - secr.value) + "deg)";
+    } else {
+      secAfter.style["background"] = "#3498db";
+      secAfter.style["transform"] = "rotate(-" + secr.value + "deg)";
+    }
+  }
+
+  setInterval(drawsector, 1);
+</script>

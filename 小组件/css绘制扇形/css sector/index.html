@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <span class="sector s1"></span>
+        <span class="sector s2"></span>
+        <span class="sector3">
+            <span id="before"></span>
+            <span id="after"></span>
+            <input type="range" id="secrange" min=0 max=360>
+            <p class="deg">DEMO</p>
+        </span>
+    </div>
+</body>
+
+</html>
+<script>
+    function drawsector() {
+        var deg = document.getElementsByClassName("deg")[0] //用于显示角度的p.deg
+        var secR = document.getElementById("secrange") //用于输入角度的滑块input#secrange
+        var secafter = document.getElementById("after") //下半圆
+        var secbefore = document.getElementById("before") //上半圆
+        deg.innerHTML = secR.value //将滑块值直接绑定至角度显示标签
+        if (secR.value <= 180) {  //如果滑块值小于等于180度，进入遮盖模式并根据值计算旋转角度
+            secafter.style['background'] = "#333" 
+            secafter.style['transform'] = "rotate(" + (180 - secR.value) + "deg)"
+        }
+        else { //否则进入组合模式，同样根据滑块值计算旋转角度
+            secafter.style['background'] = "#1e90ff"
+            secafter.style['transform'] = "rotate(-" + secR.value + "deg)"
+
+        }
+    }
+    setInterval(drawsector, 1)
+</script>
