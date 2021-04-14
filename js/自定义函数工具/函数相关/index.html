@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./防抖节流.js"></script>
+    <style>
+        #content {
+            height: 200px;
+            line-height: 150px;
+            /* width: 200px; */
+            color: #fff;
+            background-color: #ccc;
+            font-size: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+
+    <script>
+        let num = 1;
+        let content = document.getElementById('content');
+
+        function count() {
+            content.innerHTML = num++;
+        }
+
+        content.onmousemove = debounce2(count, 100)
+
+    </script>
+
+</body>
+
+</html>

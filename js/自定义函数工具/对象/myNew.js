@@ -12,3 +12,14 @@ function myInstance(Fn, ...args) {
 	let res = Fn.call(obj, ...args);
 	return res instanceof Object ? res : obj;
 }
+
+// test
+function Father(name) {
+	this.name = name;
+	this.sayWorld = function () {
+		console.log(`Hello ${this.name}!`)
+	}
+}
+
+let father = create(Father, "dad");
+father.sayWorld()
